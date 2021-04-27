@@ -59,14 +59,14 @@ As you can see in the car and swan video, the tracker works pretty well for the 
 
 
 ## Recycling Data
-As a challenge, we attempted to use SiamMask on the provided recycling dataset. This test was done using GPU on Google Colab which is why the final result shown below, has much better FPS than the videos displayed above. To apply SiamMask on the recyling data we first connected each frame from the dataset (EXCLUDING the segmented frame), to create a video file for testing. To begin the process, we initalized the bounding box from the annotated first frame which was provided to us. This is the object that will be tracked during the remainder of the process. We used OpenCV2 to create abounding box as follows:
+As a challenge, we attempted to use SiamMask on the provided recycling dataset. This test was done using a GPU on Google Colab which is why the final result shown below, has much better FPS than the videos displayed above. To apply SiamMask on the recyling data we first connected each frame from the dataset (EXCLUDING the segmented frame), to create a video file for testing. To begin the process, we initalized the bounding box from the annotated first frame which was provided to us. This is the object that will be tracked during the remainder of the process. We used OpenCV2 to create a bounding box as follows:
 
 - Make sure segmented image is grayscale -> cv2.BGR2GRAYSCALE
 - Implement a threshold where 7 is the threshold value and 255 is the max value -> cv2.threshold(img, 7, 255,0)
 - Next, we find the contours of the image. The largest contour will be the segmented object -> cv2.findContours(thres_output, cv2.RETR_EXTERNAL , cv2.CHAIN_APPROX_SIMPLE
 - Finally, we find the bounding rectangle on the largest contour to find the x coordinate, y coordinate, width, and height of the bounding box
 
-These 4 parameters (x,y, width, height) were enough to initiaize the SiamMask tracker and beginn tracking the object. During each frame of the video, the SiamMask tracker state was updated, a mask was included on top of the tracked object, with a bounding box included. This iteration was done on all frames of the input recyling video.
+These 4 parameters (x, y, width, height) were enough to initiaize the SiamMask tracker and begin tracking the object. During each frame of the video, the SiamMask tracker state was updated, a mask was included on top of the tracked object, with a bounding box included. This iteration was done on all frames of the input recyling video.
 
 #### Below you will see an output video consisting of the modified frames using SiamMask
 https://user-images.githubusercontent.com/45439265/116322149-729a3900-a789-11eb-8360-06fc0aaaf56c.mp4
