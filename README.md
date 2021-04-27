@@ -17,7 +17,7 @@ The screenshot above depicts us running equivlanet commands outlined in the make
 
 ![screenshot4](https://user-images.githubusercontent.com/50607673/116301863-81bfbd80-a76e-11eb-8e39-3084a08889cb.png)
 
-This screenshot shows the output of running the evaluation script on the DAVIS 2017 trainval dataset. It's worth pointing out that the authors state that this command should take about 50s total but based on the output gathered on our system, the processing the first video alone took 91.3s, further emphasizing the limitations in hardware. 
+This screenshot shows the output of running the evaluation script on the DAVIS 2017 trainval dataset. It's worth pointing out that the authors state that this command should take about 50s total but based on the output gathered on our system, processing the first video alone took 91.3s, further emphasizing the limitations in hardware. 
 ## Results
 
 ### Quantitative Results
