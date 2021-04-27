@@ -21,7 +21,30 @@ This screenshot shows the output of running the evaluation script on the DAVIS 2
 ## Results
 
 ### Quantitative Results
-Running the provided evaluation script outpus a quantitaive metric called IOU. IOU stands for intersection over union. For image segmentation applications, IOU is also known as  the Jaccard index, a metric which quantifies the percent overlap between the current predicted mask and the target mask. For the DAVIS dataset, each set of frames representing a video is accompanied by an annotated version of the frames which contains the correct position of the mask. In practice, this target mask would be specified by the user and initalized based on the first frame.
+Running the provided evaluation script outputs a quantitaive metric called IOU for various segementation thresholds. IOU stands for intersection over union. For image segmentation applications, IOU is also known as  the Jaccard index, a metric which quantifies the percent overlap between the current predicted mask and the target mask. For the DAVIS dataset, each set of frames representing a video is accompanied by an annotated version of the frames which contains the correct position of the mask. In practice, this target mask would be specified by the user and initalized based on the first frame. 
+
+Below is a table outlining the mean IOU, max IOU, the threshold value corresponding to the max IOU, and frames per second for the first 12 videos in the training validation DAVIS 2017 dataset.
+
+| Video Title      | mIOU        | Max IOU     | Frames Per Second |
+| :----:           |   :----:    |     :----:  |      :----:    |
+| Bear             | 0.877       | 0.886       |      1.4     |
+| Bike Packing     | 0.457       | 0.553    |      1.6   |
+| Black Swan       | 0.830       | 0.838 |     1.7    |
+| BMX Bumps        | 0.311       | 0.449   |     1.6    |
+| BMX Trees        | 0.469       | 0.628 |      1.6   |
+| Boat             | 0.439       | 0.457    |      1.6    |
+| Boxing-Fisheye   | 0.451       | 0.659 |      1.4    |
+| Breakdance       | 0.372       | 0.381   |      1.6    |
+| BreakDance-Flare | 0.656       | 0.661 |      1.6   |
+| Bus              | 0.766       |0.769   |      1.5    |
+| Camel            | 0.773       | 0.788 |      1.6    |
+| Car-Roundabout   | 0.923       | 0.929    |      1.6    |
+
+The following table is the mean IOU and frames per second over all 90 videos in the DAVIS dataset. The full text file containing detailed results can be found [here](DAVIS2017_results.txt)
+
+|         | mIOU     | Frames Per Second |
+| :----:  |   :----: |  :----: |
+| SiamMask|  0.508  |     1.47     |
 ### Qualitative Results
 
 https://user-images.githubusercontent.com/50607673/116309067-4cb76900-a776-11eb-9ba3-d28e85525dd3.mp4
