@@ -75,4 +75,7 @@ https://user-images.githubusercontent.com/45439265/116322149-729a3900-a789-11eb-
 
 The only difference between what we did for the recycling data and the examples shown above is that there was no user input. As you can see in the video, since the object is partially off-screen in the first frame, the tracker actually switches to a different object. However, once the switch occurs, the tracking works fairly well considering all of the other objects on the conveyer belt and the quality of the video itself.
 
-## Conclusions
+## Strengths and Weaknesses
+SIAMMask proved to be a good technique to track and segment objects in real time. One of the main strengths of SIAMMask is its class agnostic training. By being class agnostic, SIAMMask does not find for objects that it is trained on. Instead, it learns to match pairs of its target to other frames in the video. This means that we wouldn't need to retrain the model when a different video is given. This strength was seen in the different datasets we tried on. Since the model was trained on the COCO dataset, when tested on the DAVIS dataset, the results came out as accurate and clean segmentation and tracking.
+
+However, one problem that we found was when we applied SIAMMask to the recycling dataset. The object that we tracked was located on the top left of the image. In fact, the target object was not fully in frame. Since SIAMMask is trained to recognize objects by matching them to other frames of the video, it was difficult to find a good track and match the target object. From the results video, we see that the track switches from the big plastic bag to the smaller object and tracked this object flawlessly in other frames.
