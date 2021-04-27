@@ -40,11 +40,15 @@ Below is a table outlining the mean IOU, max IOU, the threshold value correspond
 | Camel            | 0.773       | 0.788 |      1.6    |
 | Car-Roundabout   | 0.923       | 0.929    |      1.6    |
 
-The following table is the mean IOU and frames per second over all 90 videos in the DAVIS dataset. The full text file containing detailed results can be found [here](DAVIS2017_results.txt)
+It's worth noting that based on the table shown above, it seems that the mean IOU is directly correlated to the reported FPS. This implies that the playback quality of the online tracking will be heavily dependent on the input video. However, when compared to previous methods for VOS on the DAVIS dataset, the SiamMask still produces the fastest FPS per the authors' reported results. 
+
+The following table is the mean IOU and frames per second over all 90 videos in the DAVIS dataset. The full text file containing detailed results can be found [here](DAVIS2017_results.txt).
 
 |         | mIOU     | Frames Per Second |
 | :----:  |   :----: |  :----: |
 | SiamMask|  0.508  |     1.47     |
+
+The authors reported speeds of 55 FPS which is a far cry from the 1.47 FPS achieved on our system, indicating the potential for better results given the proper hardware upgrades.
 ### Qualitative Results
 
 https://user-images.githubusercontent.com/50607673/116309067-4cb76900-a776-11eb-9ba3-d28e85525dd3.mp4
@@ -53,7 +57,7 @@ https://user-images.githubusercontent.com/50607673/116309224-81c3bb80-a776-11eb-
 
 https://user-images.githubusercontent.com/50607673/116308390-6d32f380-a775-11eb-85c9-4301b121dc78.mp4
 
-
+As you can see in the car and swan video, the tracker works pretty well for the user specified object. However, for the judo video, we purposely selected an initial bounding box that would be challenging for the tracker to see how it reacts. You can see that once the person on the left gets flipped over, the tracker only selects the right person. This is likely due to the fact that during the flipping process the two persons who are dressed very similarly were in close proximity with each other which confused the tracker. 
 
 
 ## Recycling Data
