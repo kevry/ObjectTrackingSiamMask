@@ -24,6 +24,9 @@ This screenshot shows the output of running the evaluation script on the DAVIS 2
 Running the provided evaluation script outpus a quantitaive metric called IOU. IOU stands for intersection over union. For image segmentation applications, IOU is also known as  the Jaccard index, a metric which quantifies the percent overlap between the current predicted mask and the target mask. For the DAVIS dataset, each set of frames representing a video is accompanied by an annotated version of the frames which contains the correct position of the mask. In practice, this target mask would be specified by the user and initalized based on the first frame.
 ### Qualitative Results
 
+https://user-images.githubusercontent.com/50607673/116309067-4cb76900-a776-11eb-9ba3-d28e85525dd3.mp4
+
+https://user-images.githubusercontent.com/50607673/116309224-81c3bb80-a776-11eb-8070-ba47279cee95.mp4
 
 https://user-images.githubusercontent.com/50607673/116308390-6d32f380-a775-11eb-85c9-4301b121dc78.mp4
 
