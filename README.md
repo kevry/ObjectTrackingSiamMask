@@ -59,4 +59,6 @@ As you can see in the car and swan video, the tracker works pretty well for the 
 
 
 ## Recycling Data
-As a challenge, we attempted to use SiamMask on the provided recycling dataset. This test was done using GPU on Google Colab which is why the final result shown below, has much better FPS than the videos displayed above. To apply SiamMask on the recyling data we ...........
+As a challenge, we attempted to use SiamMask on the provided recycling dataset. This test was done using GPU on Google Colab which is why the final result shown below, has much better FPS than the videos displayed above. To apply SiamMask on the recyling data we initalized the bounding box from the annotated first frame which was provided to us using OpenCV and then ran the SiamMask algorithm like normal. The only difference between what we did for the recycling data and the examples shown above is that there was no user input. As you can see in the video, since the object is partially off-screen in the first frame, the tracker actually switches to a different object. However, once the switch occurs, the tracking works fairly well considering all of the other objects on the conveyer belt and the quality of the video itself.
+
+## Conclusions
