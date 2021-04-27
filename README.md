@@ -61,3 +61,4 @@ As you can see in the car and swan video, the tracker works pretty well for the 
 
 
 ## Recycling Data
+As a challenge, we attempted to use SiamMask on the provided recycling dataset. This test was done using GPU on Google Colab which is why the final result shown below, has much better FPS than the videos displayed above. To apply SiamMask on the recyling data we ...........
