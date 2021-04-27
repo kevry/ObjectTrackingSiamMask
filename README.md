@@ -8,7 +8,18 @@ Object tracking is a core component within the field of computer vision and has 
 ## Breakdown of SiamMask Implementation
 
 
-## Implementing and Testing SiamMask 
+## Implementing and Testing SiamMask on DAVIS 2017
 
+To test SiamMask ourselves, we followed the tutorial on the main SiamMask github page which can be found [here](https://github.com/foolwood/SiamMask). All processing and tests conducted on Windows 10 (Processor: Intel(R) Core(TM) i7-2600 CPU @ 3.40GHz, 3401 Mhz, 4 Core(s), 8 Logical Processor(s), Memory 16GB). Initially we attempted to train the SiamMask network from scratch ourselves, but due to the nature of the SiamMask architecture and limitations in hardware, we opted to use a pretrained network. The training process for SiamMask involves training the network on COCO, ImageNet-VID, and YouTube-VOS, all of which are substantial datasets. Just attempting to download the COCO dataset gave us an estimated time of 5 hours. The authors state that training take about 10 hours when run on 4 Tesla V100 GPUs. Given that we had no GPUs of similar computing capability available, this training process would've taken a long time. Below are screenshots depicting us setting up SiamMask and running the evaluation script on the DAVIS 2017 dataset.
 
+![screenshot1](https://user-images.githubusercontent.com/50607673/116298004-eaf10200-a769-11eb-8fd9-b508056426ad.png)
+The screenshot above depicts us running equivlanet commands outlined in the make.sh file provided by the authors. We decided to run each command one-by-one rather than running everything once as we had a couple issues regarding unsuported modules as the last update to the repository was in 2019.
+
+![screenshot4](https://user-images.githubusercontent.com/50607673/116301863-81bfbd80-a76e-11eb-8e39-3084a08889cb.png)
+
+This screenshot shows the output of running the evaluation script on the DAVIS 2017 trainval dataset. It's worth pointing out that the authors state that this command should take about 50s total but based on the output gathered on our system, the processing the first video alone took 91.3s, further emphasizing the limitations in hardware. 
 ## Results
+
+### Quantitative Results
+Running the provided evaluation script outpus a quantitaive metric called IOU. IOU stands for intersection over union. For image segmentation applications, IOU is also known as  the Jaccard index, a metric which quantifies the percent overlap between the current predicted mask and the target mask. For the DAVIS dataset, each set of frames representing a video is accompanied by an annotated version of the frames which contains the correct position of the mask. In practice, this target mask would be specified by the user and initalized based on the first frame.
+### Qualitative Results
