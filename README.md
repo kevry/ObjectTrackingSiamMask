@@ -25,7 +25,7 @@ Running the provided evaluation script outputs a quantitaive metric called IOU f
 
 Below is a table outlining the mean IOU, max IOU, the threshold value corresponding to the max IOU, and frames per second for the first 12 videos in the training validation DAVIS 2017 dataset.
 
-| Video Title      | mIOU        | Max IOU     | Frames Per Second |
+| Video Title      | Mean IOU        | Max IOU     | Frames Per Second |
 | :----:           |   :----:    |     :----:  |      :----:    |
 | Bear             | 0.877       | 0.886       |      1.4     |
 | Bike Packing     | 0.457       | 0.553    |      1.6   |
@@ -44,7 +44,7 @@ It's worth noting that based on the table shown above, it seems that the mean IO
 
 The following table is the mean IOU and frames per second over all 90 videos in the DAVIS dataset. The full text file containing detailed results can be found [here](DAVIS2017_results.txt).
 
-|         | mIOU     | Frames Per Second |
+|         | Mean IOU     | Frames Per Second |
 | :----:  |   :----: |  :----: |
 | SiamMask|  0.508  |     1.47     |
 
