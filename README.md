@@ -40,8 +40,6 @@ Below is a table outlining the mean IOU, max IOU, the threshold value correspond
 | Camel            | 0.773       | 0.788 |      1.6    |
 | Car-Roundabout   | 0.923       | 0.929    |      1.6    |
 
-It's worth noting that based on the table shown above, it seems that the mean IOU is directly correlated to the reported FPS. This implies that the playback quality of the online tracking will be heavily dependent on the input video. However, when compared to previous methods for VOS on the DAVIS dataset, the SiamMask still produces the fastest FPS per the authors' reported results. 
-
 The following table is the mean IOU and frames per second over all 90 videos in the DAVIS dataset. The full text file containing detailed results can be found [here](DAVIS2017_results.txt).
 
 |         | Mean IOU     | Frames Per Second |
