@@ -15,6 +15,7 @@ The backbone of the network for SiamMask was trained on Imagenet-1K. For optimiz
 To test SiamMask ourselves, we followed the tutorial on the main SiamMask github page which can be found [here](https://github.com/foolwood/SiamMask). All processing and tests conducted on Windows 10 (Processor: Intel(R) Core(TM) i7-2600 CPU @ 3.40GHz, 3401 Mhz, 4 Core(s), 8 Logical Processor(s), Memory 16GB). Initially we attempted to train the SiamMask network from scratch ourselves, but due to the nature of the SiamMask architecture and limitations in hardware, we opted to use a pretrained network. The training process for SiamMask involves training the network on COCO, ImageNet-VID, and YouTube-VOS, all of which are substantial datasets. Just attempting to download the COCO dataset gave us an estimated time of 5 hours. The authors state that training take about 10 hours when run on 4 Tesla V100 GPUs. Given that we had no GPUs of similar computing capability available, this training process would've taken a long time. Below are screenshots depicting us setting up SiamMask and running the evaluation script on the DAVIS 2017 dataset.
 
 ![screenshot1](https://user-images.githubusercontent.com/50607673/116298004-eaf10200-a769-11eb-8fd9-b508056426ad.png)
+
 The screenshot above depicts us running equivlanet commands outlined in the make.sh file provided by the authors. We decided to run each command one-by-one rather than running everything once as we had a couple issues regarding unsuported modules as the last update to the repository was in 2019.
 
 ![screenshot4](https://user-images.githubusercontent.com/50607673/116301863-81bfbd80-a76e-11eb-8e39-3084a08889cb.png)
@@ -79,3 +80,22 @@ The only difference between what we did for the recycling data and the examples 
 SIAMMask proved to be a good technique to track and segment objects in real time. One of the main strengths of SIAMMask is its class agnostic training. By being class agnostic, SIAMMask does not find for objects that it is trained on. Instead, it learns to match pairs of its target to other frames in the video. This means that we wouldn't need to retrain the model when a different video is given. This strength was seen in the different datasets we tried on. Since the model was trained on the COCO dataset, when tested on the DAVIS dataset, the results came out as accurate and clean segmentation and tracking.
 
 However, one problem that we found was when we applied SIAMMask to the recycling dataset. The object that we tracked was located on the top left of the image. In fact, the target object was not fully in frame. Since SIAMMask is trained to recognize objects by matching them to other frames of the video, it was difficult to find a good track and match the target object. From the results video, we see that the track switches from the big plastic bag to the smaller object and tracked this object flawlessly in other frames.
+
+
+
+## Running Colab Notebook
+To run code, download `siammask_code.ipynb` and please use Google Colab with GPU on to run. 
+
+Please download the following:
+-  input.mp4 (Compiled video of recyling dataset) (Link: https://drive.google.com/file/d/1YutVI2j7MWsnS_EvgrFWEXon16Q3dAup/view?usp=sharing)
+-  frame_000030.png (First segmentation frame/Object to be tracked) (Link: https://drive.google.com/file/d/1wlieCiuq5uBeAD-7bX_tagDfEgkR4RrT/view?usp=sharing)
+
+Please drag and drop both files into your content section on the Google Colab session you are working on.
+
+Finall,y go to `Runtime` then click `Run all` to run entire notebook.
+
+The output of the notebook will be an mp4 called output.mp4. This video is a compilation of modified versions of the origianl frames with segmentation and object tracking.
+
+
+### Quick Summary of code
+The code in `siammask_code.ipynb` uses provided functions from the SiamMask Github and tracks a single object from the recyling dataset. The segmented image (frame_000030.png) is converted to grayscale and contours are used to find the objects centroid coordinates. These coordinates, length, and width of the object are fed to the SiamMask function to intialize a tracker then maintain the tracked object through the iteration of the video. The output of this notebook is a compiled video with visual tracking of a recyling object using SiamMask.
