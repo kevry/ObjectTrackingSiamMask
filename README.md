@@ -92,7 +92,11 @@ Please download the following:
 
 Please drag and drop both files into your content section on the Google Colab session you are working on.
 
-Finall,y go to `Runtime` then click `Run all` to run entire notebook.
+In the `Connect Google Colab to Google Drive for video extraction` section of the Colab Notebook, please remove all lines of code and only include the following:
+-  inputVideo = '/content/input.mp4'
+-  segmentedImagePath = '/content/frame_000030.png'
+
+Finally go to `Runtime` then click `Run all` to run entire notebook.
 
 The output of the notebook will be an mp4 called output.mp4. This video is a compilation of modified versions of the origianl frames with segmentation and object tracking.
 
